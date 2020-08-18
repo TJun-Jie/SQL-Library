@@ -1,0 +1,30 @@
+extends layout.pug
+block content
+    head
+        title Update Book
+        link(href="/static/stylesheets/style.css" rel="stylesheet")
+    body
+        h1 Update Book
+        h3.error=(error? "Oops" : '')
+        h3.error=(error? error.message : '')
+        form(action=`/books/${id}` method="post")
+            p
+                label(for="title") Title
+                input(type="text" name="title" id="title" value=(book? book.title : ''))
+            p
+                label(for="author")  Author
+                input(type="text" name="author" id="author" value=(book? book.author : ''))
+            p
+                label(for="genre") Genre
+                input(type="text" name="genre" id="genre" value=(book? book.genre : ''))
+            p
+                label(for="year") Year
+                input(type="text" name="year" id="year" value=(book? book.year : ''))
+            p
+                input(type="submit" value="Update Book")
+
+        form(action=`/books/${id}/delete` method="post" onsubmit="return confirm('Do you really want to delete this book?');")
+            p 
+                a.button(href="/books") Cancel
+            p
+                input(type="submit" value="Delete Book")
