@@ -30,7 +30,7 @@ router.get('/new',  (req, res) => {
 })
 // Search route
 router.get('/search' , asyncHandler( async (req, res) => {
-    const query = req.query.search;
+    const query = String(req.query.search);
     const books = await Book.findAndCountAll({
         where: {
             [Op.or] :[
@@ -72,6 +72,7 @@ router.post('/new',  asyncHandler( async (req, res) => {
             book = await Book.build(req.body);
             res.render('new-book', {book, error})
         }else {
+            console.log(error)
             throw error 
         }
     }
