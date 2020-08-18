@@ -12,7 +12,7 @@ module.exports = {
      * }], {});
      * 
     */
-  await queryInterface.bulkInsert('People', [
+  await queryInterface.bulkInsert('Book', [
     {"id":2,"title":"Harry Potter and the Philosopher's Stone","author":"J.K. Rowling","genre":"Fantasy","year":"1997","createdAt":"2020-08-18T00:41:01.737+08:00","updatedAt":"2020-08-18T00:41:01.737+08:00"}
 
   ], {});
